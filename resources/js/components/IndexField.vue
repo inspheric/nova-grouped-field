@@ -16,8 +16,8 @@
                 <span v-if="field.showLabels">{{ childField.name }}: </span>
                 {{ childField.value }}
             </span>
-            <span v-if="index + 1 != field.fields.length">
-                {{ field.separator }} 
+            <span v-if="showSeparator(index)">
+                {{ field.separator }}
             </span>
         </span>
     </div>
@@ -25,6 +25,12 @@
 
 <script>
 export default {
-  props: ['resource', 'resourceName', 'resourceId', 'field']
+  props: ['resource', 'resourceName', 'resourceId', 'field'],
+
+  methods: {
+      showSeparator(index) {
+          return index < this.field.fields.length - 1 && this.field.fields[index + 1].value
+      }
+  }
 };
 </script>
