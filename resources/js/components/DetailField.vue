@@ -24,7 +24,7 @@
                         <span v-if="field.showLabels">{{ childField.name }}: </span>
                         {{ childField.value }}
                     </span>
-                    <span v-if="showSeparator(index)">
+                    <span v-if="showSeparator(index)"> //FIXME
                         {{ field.separator }}
                     </span>
                 </span>
@@ -40,7 +40,7 @@ export default {
 
   methods: {
       showSeparator(index) {
-          return index < this.field.fields.length - 1 && this.field.fields[index + 1].value
+          return index < this.field.fields.length - 1 && this.field.fields[index + 1].value //FIXME
       }
   }
 };
